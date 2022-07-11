@@ -22,7 +22,7 @@ public class ReqresinTests {
     }
 
     @Test
-    @DisplayName("Првоерка email конкретного пользователя")
+    @DisplayName("Проверка email конкретного пользователя")
     void checkSpecificEmail() {
         List<UserData> users = given()
                 .spec(Specs.request)
@@ -35,7 +35,7 @@ public class ReqresinTests {
     }
 
     @Test
-    @DisplayName("Проверки, используя Groovy")
+    @DisplayName("Проверки email и имени, используя Groovy")
     void checkEmailUsingGroovy() {
         given()
                 .spec(Specs.request)

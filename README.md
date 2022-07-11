@@ -17,6 +17,7 @@
 <img width="6%" title="IntelliJ IDEA" src="logo/Intelij_IDEA.svg">
 <img width="6%" title="Java" src="logo/Java.svg">
 <img width="6%" title="Selenide" src="logo/Selenide.svg">
+<img width="6%" title="RestAssured" src="logo/RestAssured.svg">
 <img width="6%" title="Allure Report" src="logo/Allure_Report.svg">
 <img width="6%" title="Gradle" src="logo/Gradle.svg">
 <img width="6%" title="JUnit5" src="logo/JUnit5.svg">
@@ -26,5 +27,15 @@
 </p>
 
 ### 💎[Реализованные проверки](#реализованные-проверки)
-* 
+* Проверка общего количества пользователей.
+* Проверка email конкретного пользователя.
+* Проверки email и имени, используя Groovy.
+* Проверка создания пользователя.
+* Проверка успешного удаления пользователя.
+* Проверка неуспешной авторизации.
+
+#### В ходе проверок используются:
+- модели (Lombok)
+- Request/response specification (restAssured)
+
 
