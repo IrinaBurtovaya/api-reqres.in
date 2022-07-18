@@ -1,8 +1,11 @@
+import io.qameta.allure.AllureId;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.is;
@@ -11,83 +14,50 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ReqresinTests {
 
     @Test
+    @AllureId("11322")
+    @Tag("totalUsersCount")
     @DisplayName("Проверка общего количества пользователей")
     void checkTotalCountOfUsers() {
-        given()
-                .spec(Specs.request)
-                .get("/users?page=2")
-                .then()
-                .spec(Specs.response)
-                .body("total", is(12));
+        step("Проверка общего количества пользователей");
     }
 
     @Test
+    @AllureId("11323")
+    @Tag("specificEmail")
     @DisplayName("Проверка email конкретного пользователя")
     void checkSpecificEmail() {
-        List<UserData> users = given()
-                .spec(Specs.request)
-                .get("/users?page=2")
-                .then()
-                .spec(Specs.response)
-                .body("total", is(12))
-                .extract().jsonPath().getList("data", UserData.class);
-        assertEquals("byron.fields@reqres.in", users.get(3).getEmail());
+        step("Проверка email конкретного пользователя");
     }
 
     @Test
+    @AllureId("11324")
+    @Tag("checkEmailGroovy")
     @DisplayName("Проверки email и имени, используя Groovy")
     void checkEmailUsingGroovy() {
-        given()
-                .spec(Specs.request)
-                .get("/users?page=2")
-                .then()
-                .spec(Specs.response)
-                .body("data.findAll{it.email =~/.*?@reqres.in/}.email.flatten()",
-                        hasItem("byron.fields@reqres.in"))
-                .body("data.findAll{it.first_name}.first_name.flatten()", hasItem("Byron"));
+        step("Проверки email и имени, используя Groovy");
     }
 
     @Test
+    @AllureId("11325")
+    @Tag("createUser")
     @DisplayName("Проверка создания пользователя")
     void createUser() {
-        String body = "{ \"name\": \"morpheus\", \"job\": \"leader\", \"id\": \"598\", \"createdAt\": \"2022-06-07T11:53:47.580Z\" }";
-
-        given()
-                .spec(Specs.request)
-                .body(body)
-                .when()
-                .post("/users")
-                .then()
-                .statusCode(201)
-                .log().status()
-                .log().body()
-                .body("name", is("morpheus"));
+        step("Проверка создания пользователя");
     }
 
     @Test
+    @AllureId("11326")
+    @Tag("deleteUser")
     @DisplayName("Проверка успешного удаления пользователя")
     void deleteUserStatusCode204() {
-        given()
-                .spec(Specs.request)
-                .when()
-                .delete("/users/2")
-                .then()
-                .statusCode(204);
+        step("Проверка успешного удаления пользователя");
     }
 
     @Test
+    @AllureId("11327")
+    @Tag("unsuccessfulLogin")
     @DisplayName("Проверка неуспешной авторизации")
     void checkUnsuccessfulLogin() {
-        String body = "{ \"email\": \"peter@klaven\" }";
-        given()
-                .spec(Specs.request)
-                .body(body)
-                .when()
-                .post("/login")
-                .then()
-                .log().status()
-                .log().body()
-                .statusCode(400)
-                .body("error", is("Missing password"));
+        step("Проверка неуспешной авторизации");
     }
 }
