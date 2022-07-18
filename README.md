@@ -9,7 +9,7 @@
 - <a href="#сборка-в-jenkins">Сборка в Jenkins</a>
 - <a href="#запуск-из-терминала">Запуск из терминала</a>
 - <a href="#allure-отчет">Allure отчет</a>
-- <a href="#Allure TestOps отчет">Allure TestOps отчет</a>
+- <a href="#testops">Allure TestOps отчет</a>
 - <a href="#отчет-в-telegram">Отчет в Telegram</a>
 
 ### 💎[Технологии и инструменты](#технологии-и-инструменты)
@@ -58,7 +58,7 @@
 #### Графики
 ![Img5](logo/graphs.jpg)
 
-### 💎[Allure TestOps отчет](#Allure TestOps отчет)
+### 💎[Allure TestOps отчет](#testops)
 #### Тест-кейсы
 ![Img3](logo/alluretestopscases.jpg)
 
