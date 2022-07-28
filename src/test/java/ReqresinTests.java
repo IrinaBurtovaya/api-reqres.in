@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.is;
@@ -61,7 +60,6 @@ public class ReqresinTests {
     @DisplayName("Проверка создания пользователя")
     @Tag("createUser")
     void createUser() {
-
         UserData user = new UserData("morpheus", "leader");
         given()
                 .spec(Specs.request)
