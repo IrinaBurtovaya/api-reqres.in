@@ -1,8 +1,11 @@
+import io.qameta.allure.AllureId;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.is;
@@ -11,6 +14,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ReqresinTests {
 
     @Test
+    @AllureId("11366")
+    @Tag("totalCount")
     @DisplayName("Проверка общего количества пользователей")
     void checkTotalCountOfUsers() {
         given()
@@ -22,6 +27,8 @@ public class ReqresinTests {
     }
 
     @Test
+    @AllureId("11367")
+    @Tag("specificEmail")
     @DisplayName("Проверка email конкретного пользователя")
     void checkSpecificEmail() {
         List<UserData> users = given()
@@ -35,6 +42,8 @@ public class ReqresinTests {
     }
 
     @Test
+    @AllureId("11368")
+    @Tag("groovy")
     @DisplayName("Проверки email и имени, используя Groovy")
     void checkEmailUsingGroovy() {
         given()
@@ -48,7 +57,9 @@ public class ReqresinTests {
     }
 
     @Test
+    @AllureId("11369")
     @DisplayName("Проверка создания пользователя")
+    @Tag("createUser")
     void createUser() {
 
         UserData user = new UserData("morpheus", "leader");
@@ -65,6 +76,8 @@ public class ReqresinTests {
     }
 
     @Test
+    @AllureId("11370")
+    @Tag("deleteUser")
     @DisplayName("Проверка успешного удаления пользователя")
     void deleteUserStatusCode204() {
         given()
@@ -76,6 +89,8 @@ public class ReqresinTests {
     }
 
     @Test
+    @AllureId("11371")
+    @Tag("unsuccessfulLogin")
     @DisplayName("Проверка неуспешной авторизации")
     void checkUnsuccessfulLogin() {
         String body = "{ \"email\": \"peter@klaven\" }";
