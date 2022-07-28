@@ -50,18 +50,18 @@ public class ReqresinTests {
     @Test
     @DisplayName("Проверка создания пользователя")
     void createUser() {
-        String body = "{ \"name\": \"morpheus\", \"job\": \"leader\", \"id\": \"598\", \"createdAt\": \"2022-06-07T11:53:47.580Z\" }";
 
+        UserData user = new UserData("morpheus", "leader");
         given()
                 .spec(Specs.request)
-                .body(body)
+                .body(user)
                 .when()
                 .post("/users")
                 .then()
                 .statusCode(201)
                 .log().status()
                 .log().body()
-                .body("name", is("morpheus"));
+                .body("name", is(user.getName()), "job", is(user.getJob()));
     }
 
     @Test

@@ -7,6 +7,11 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserData {
 
+    public UserData(String name, String job) {
+        this.name = name;
+        this.job = job;
+    }
+
     private Long id;
     private String email;
     @JsonProperty("first_name")
@@ -14,4 +19,5 @@ public class UserData {
     @JsonProperty("last_name")
     private String lastName;
     private String name;
+    private String job;
 }

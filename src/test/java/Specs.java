@@ -7,13 +7,13 @@ import static io.restassured.http.ContentType.JSON;
 
 public class Specs {
 
-        public static RequestSpecification request = with()
+    public static RequestSpecification request = with()
             .baseUri("https://reqres.in/api")
             .log().uri()
             .log().body()
             .contentType(JSON);
 
-        public static ResponseSpecification response = new ResponseSpecBuilder()
-                .expectStatusCode(200)
-                .build();
+    public static ResponseSpecification response = new ResponseSpecBuilder()
+            .expectStatusCode(200)
+            .build();
 }
